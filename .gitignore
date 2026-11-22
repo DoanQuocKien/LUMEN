@@ -1,0 +1,19 @@
+# data (may contain personal information)
+data/raw/**
+data/interim/**
+data/processed/**
+!data/**/.gitkeep
+experiments/runs/*.trec
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.ipynb_checkpoints/
+.pytest_cache/
+# models / indexes
+*.faiss
+*.npy
+models/
+# env
+.env

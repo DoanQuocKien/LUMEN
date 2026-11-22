@@ -1,0 +1,52 @@
+crawl:
+  base_url: https://ctsv.uit.edu.vn
+  listing_path: /thong-bao      # TODO(W1-A1): confirm the real listing URL and ?page= pattern
+  crawl_delay_s: 10             # from robots.txt; do not lower
+  user_agent: "LUMEN-CS419-UIT student project (contact: <your-email>)"
+  timeout_s: 30
+  max_retries: 3
+  window_years: 2               # decision pending (plan §11.1)
+
+paths:
+  raw_html: data/raw/html
+  raw_attachments: data/raw/attachments
+  ocr_cache: data/interim/ocr
+  docs: data/processed/docs.jsonl
+  passages: data/processed/passages.jsonl
+  runs: experiments/runs
+
+ocr:
+  engine: tesseract             # decision pending (W1-A4)
+  lang: vie
+  dpi: 300
+  min_chars_per_page: 50        # fewer than this → treat page as scanned
+
+passages:
+  size_syllables: 200
+  overlap_syllables: 30
+
+bm25:
+  k1: 1.2
+  b: 0.75
+  field_boost: {title: 3.0, body: 1.0, attachment: 1.0}
+
+lsi:
+  n_components: 200
+
+dense:
+  model: BAAI/bge-m3
+  batch_size: 32
+  top_k: 100
+
+fusion:
+  method: rrf
+  rrf_k: 60
+
+rerank:
+  model: BAAI/bge-reranker-v2-m3
+  depth: 50
+
+eval:
+  cutoffs: [5, 10, 100]
+  primary: ndcg@10
+  bootstrap_samples: 10000

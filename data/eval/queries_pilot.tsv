@@ -1,0 +1,11 @@
+qid	query	style	notes
+P01	học bổng khuyến khích học tập HK1 2026-2027	K	site search OK
+P02	danh sách đăng ký HB KKHT	K	site search OK
+P03	điểm rèn luyện học kỳ 1	K	site search OK
+P04	Em cần nộp giấy tờ gì để xét miễn giảm học phí?	Q	site search: nothing; check a relevant post exists
+P05	Khi nào có kết quả xét học bổng học kỳ này?	Q	site search: nothing; check a relevant post exists
+P06	Điểm cộng ưu tiên ĐUT1 và ĐUT2 được tính cho những thành tích nào?	Q	site search: nothing; answer is in the HB KKHT notice body
+P07	hb kkht hk1 nam nay co danh sach chua	N	site search OK
+P08	thong bao cu sinh vien thi an toan thong tin	N	site search OK; answer is a scanned decision (QĐ 1487/2026)
+P09	dang ky bhyt sv nam 2	N	site search OK
+P10	thông báo số 2 về danh sách học bổng	T	site search: nothing; series query

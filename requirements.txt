@@ -1,0 +1,26 @@
+# crawl and parse
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+# PDF and OCR
+pymupdf>=1.24
+pdf2image>=1.17
+pytesseract>=0.3.10
+# paddleocr / vietocr: install only during the W1 OCR bake-off
+# Vietnamese text
+underthesea>=6.8
+pyvi>=0.1.1
+# retrieval
+bm25s>=0.2
+scikit-learn>=1.4
+numpy>=1.26
+faiss-cpu>=1.8
+sentence-transformers>=3.0
+# evaluation
+ranx>=0.3.19
+scipy>=1.11
+pandas>=2.1
+# config, demo, tests
+pyyaml>=6.0
+streamlit>=1.36
+pytest>=8.0
