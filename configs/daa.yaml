@@ -9,6 +9,7 @@ crawl:
   sections:
     - /thongbaochinhquy          # notices for regular undergraduate programmes
     - /thong-bao-chung           # general notices
+    - /thong-bao-vb2             # second-degree (văn bằng 2) notices
     - /qui-che-qui-dinh-qui-trinh   # UIT regulations
     - /quy-che-quy-dinh-dao-tao-dai-hoc-cua-dhqg-hcm
     - /quy-che-quy-dinh-dao-tao-dai-hoc-cua-bo-gddt
