@@ -17,6 +17,7 @@ import json
 import logging
 import re
 import sys
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
@@ -24,7 +25,7 @@ from urllib.parse import urljoin, urlsplit
 import yaml
 from bs4 import BeautifulSoup
 
-from lumen.crawl.http import PoliteFetcher
+from lumen.crawl.http import DisallowedError, PoliteFetcher
 from lumen.crawl.listing import ListingItem, load_index
 
 log = logging.getLogger(__name__)
@@ -79,6 +80,23 @@ def _done(status_path: Path) -> dict[str, dict]:
     return {r["url"]: r for r in rows}
 
 
+@dataclass
+class _Failed:
+    """Stand-in for a fetch that raised after all retries (status 0)."""
+    status: int = 0
+    content: bytes = b""
+    text: str = ""
+    from_cache: bool = False
+
+
+def _get(fetcher: PoliteFetcher, url: str):
+    try:
+        return fetcher.get(url)
+    except (RuntimeError, DisallowedError) as exc:     # one bad URL must not stop a multi-hour crawl
+        log.warning("%s: %s", url, exc)
+        return _Failed()
+
+
 def crawl_posts(fetcher: PoliteFetcher, items: list[ListingItem], status_path: Path,
                 attachments: bool = True, limit: int | None = None) -> dict[str, int]:
     done = _done(status_path)
@@ -91,14 +109,14 @@ def crawl_posts(fetcher: PoliteFetcher, items: list[ListingItem], status_path: P
             if done.get(it.url, {}).get("status") == 200:
                 stats["skipped"] += 1
                 continue
-            res = fetcher.get(it.url)
+            res = _get(fetcher, it.url)
             row = {"url": it.url, "status": res.status, "attachments": [],
                    "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
             if res.status == 200:
                 stats["posts"] += 1
                 if attachments:
                     for au in attachment_links(res.text, it.url):
-                        ar = fetcher.get(au)
+                        ar = _get(fetcher, au)
                         row["attachments"].append({"url": au, "status": ar.status, "bytes": len(ar.content)})
                         stats["attachments" if ar.status == 200 else "attachments_failed"] += 1
             else:

@@ -48,3 +48,16 @@ def test_crawl_posts_fetches_attachments_and_resumes(tmp_path):
     assert rows[0]["attachments"][0]["bytes"] == 4
     again = crawl_posts(f, items, status)                  # 200s are skipped; the 404 is retried
     assert again["skipped"] == 1 and f.session.calls.count(f"{BASE}/bai-viet/x") == 1
+
+
+def test_failed_fetch_does_not_stop_the_crawl(tmp_path):
+    class Boom(FakeResp):
+        pass
+
+    pdf = f"{BASE}/sites/default/files/uploads/files/202611/qd-1487.pdf"
+    f, _ = make_fetcher(tmp_path, {f"{BASE}/bai-viet/x": POST, f"{BASE}/bai-viet/y": POST,
+                                   pdf: [Boom(503, "")] * 8}, delay=0)
+    f.max_retries = 1
+    status = tmp_path / "s.jsonl"
+    stats = crawl_posts(f, [item("x", "2026-01-02"), item("y", "2026-01-01")], status)
+    assert stats["posts"] == 2 and stats["attachments_failed"] == 2     # both posts recorded, crawl went on
