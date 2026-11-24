@@ -178,11 +178,11 @@ passage.
 
 ## 6. Team roles
 
-| Member | Role | Owns |
-|---|---|---|
-| **A** | Data and OCR | Crawler, parsing, text-layer detection, OCR, metadata extraction, passages |
-| **B** | Evaluation and classification | Queries, judging, qrels, metrics/eval harness, intent classifier, error analysis |
-| **C** | Retrieval | Normalization/segmentation, S0–S7, indexing, fusion, reranking, tuning, demo backend |
+| Member | Person | Role | Owns |
+|---|---|---|---|
+| **A** | Nguyễn Huy Hoàng | Data and OCR | Crawler, parsing, text-layer detection, OCR, metadata extraction, passages |
+| **B** | Bùi Diên Gia Bảo | Evaluation and classification | Queries, judging, qrels, metrics/eval harness, intent classifier, error analysis |
+| **C** | Đoàn Quốc Kiên (team leader) | Retrieval | Normalization/segmentation, S0–S7, indexing, fusion, reranking, tuning, demo backend |
 
 Everyone writes the report section for their part and presents it.
 **Weekly sync on Sunday evening (30 min):** results table, blockers, plan for next week.
@@ -207,6 +207,19 @@ Daily async updates in the group chat: done / doing / blocked.
 | W1-C2 | C | **S0** Boolean AND replica. Check it against the site on 10 queries by hand (no scripted use of `/search/`). | Matches the site's behavior on 8 of 10 or better |
 | W1-C3 | C | **S1** BM25 on title + body for the posts crawled so far. | Runs on the pilot queries |
 | W1-ALL | All | Send the lecturer the one-paragraph scope (retrieval over ctsv posts, Ch2 evaluation, no answer generation). | Reply recorded in `decisions.md` |
+
+**W1 status check (25/11, from the repo, not from a run):**
+
+| ID | Status | Evidence / what is left |
+|---|---|---|
+| W1-A1 | Code done, **not run yet** | `crawl/listing.py` + `crawl/http.py` + offline tests exist. Run it (~45 min) to produce `posts_index.csv`. |
+| W1-A2 | Blocked on A1 | Needs the counts. |
+| W1-A3, A4, A5 | Not started | `parse/html.py`, `ocr/*` are stubs. A4 is the critical path: start it first. |
+| W1-B1 | Partial | `queries_pilot.tsv` has 11 lines (target 60) and `judging_guidelines.md` is a draft. |
+| W1-B2 | Partial | `eval/metrics.py` has the metrics. Missing: TREC/qrels reader, per-style table, significance test, `ranx` cross-check; `run.py` is a stub. |
+| W1-C1 | Partial | `normalize()` + `fold()` + test exist. Missing: number/date normalization, word segmentation, stopwords. |
+| W1-C2, C3 | Not started | `index/boolean.py`, `index/bm25.py` are stubs. Both can be finished this week without OCR. C3 needs A3 output, so use the A1 titles until then. |
+| W1-ALL | Not done | Send the scope paragraph to the lecturer. |
 
 **W1 milestone:** about 500+ posts parsed, OCR engine chosen, S0 and S1 running, eval harness
 working on the pilot queries.
@@ -292,7 +305,8 @@ table (number of posts, % with PDFs, % scanned, OCR time).
 - **Test discipline:** tune on dev only. Run on test once, after the W3 freeze.
 - **GenAI:** log every substantial use in `docs/genai_usage.md` (tool, purpose, what was kept).
   Do not paste outputs verbatim into the report.
-- **Git:** one branch per task ID (e.g. `w2-c3-dense`), small PRs, reviewed by one other member.
+- **Git:** one branch per task ID (e.g. `w2-c3-dense`), small PRs. **Every PR needs at least 1 approval from another
+  teammate before it can be merged** (enforced by branch protection on `main`; nobody approves their own PR).
 
 ---
 
