@@ -15,6 +15,15 @@ crawl:
     - /loai-bai-viet/suc-khoe
     - /loai-bai-viet/tam-ly
     - /loai-bai-viet/bao-hiem-y-te
+  select:                       # which listed posts to fetch (decision: narrow window first, 2026-11-25)
+    since: "2024-11-22"         # dated posts from the last 2 years
+    undated_title_regex: "202[56]"   # /quyet-dinh has no listing dates: keep titles with 2025 or 2026
+    reference_sections:         # regulations and guides stay valid for years: keep them all
+      - /quy-che-quy-dinh
+      - /quy-trinh
+      - /bieu-mau
+      - /loai-bai-viet/so-tay-sinh-vien
+      - /loai-bai-viet/huong-dan
   crawl_delay_s: 10             # from robots.txt; do not lower
   user_agent: "LUMEN-CS419-UIT student project (contact: <your-email>)"
   timeout_s: 30

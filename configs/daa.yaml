@@ -17,6 +17,13 @@ crawl:
     - /quy-che-quy-dinh-dao-tao-dai-hoc-cua-bo-gddt
     - /mot-so-quy-trinh-danh-cho-sinh-vien   # chuyển ngành, chuyển trường, ĐKHP procedures
     - /kehoachnam                            # training calendar (image only)
+  select:
+    since: "2025-01-01"
+    # about 85% of /thongbaochinhquy is per-class notices (make-up classes, room changes): skip them
+    exclude_title_regex: "nghỉ lớp|học bù|phòng học|đổi phòng|thay đổi phòng|chuyển phòng|thay đổi lịch|lịch học|lịch thi thực hành"
+    reference_sections:
+      - /qui-che-qui-dinh-qui-trinh
+      - pages
   crawl_delay_s: 10              # from robots.txt; do not lower
   user_agent: "LUMEN-CS419-UIT student project (contact: <your-email>)"
   timeout_s: 30
