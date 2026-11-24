@@ -9,3 +9,4 @@
 | | OCR engine | Tesseract / PaddleOCR / VietOCR / vision LLM | pending W1-A4 | A |
 | | Dense model | bge-m3 / multilingual-e5 / Vietnamese bi-encoder | pending W2 | C |
 | | Lecturer approval of scope | — | pending | Team |
+| 2026-11-25 | Add daa.uit.edu.vn (Office of Undergraduate Studies) as a second source; do not index forum.uit.edu.vn | DAA / www.uit.edu.vn / forum | 30 real student questions: about a third are academic-affairs topics (credits, transfers, exam dates, holidays) that ctsv does not cover. DAA has the same Drupal setup and `Crawl-delay: 10`. The forum is user content with personal data and is where queries come from | Team |
