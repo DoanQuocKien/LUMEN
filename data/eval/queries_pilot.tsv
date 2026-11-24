@@ -9,3 +9,53 @@ P07	hb kkht hk1 nam nay co danh sach chua	N	site search OK
 P08	thong bao cu sinh vien thi an toan thong tin	N	site search OK; answer is a scanned decision (QĐ 1487/2026)
 P09	dang ky bhyt sv nam 2	N	site search OK
 P10	thông báo số 2 về danh sách học bổng	T	site search: nothing; series query
+P11	xét học bổng khuyến khích học tập HK2 2025-2026	K	llm-draft; verify a relevant post exists after crawl
+P12	miễn giảm học phí sinh viên diện hộ nghèo	K	llm-draft; verify a relevant post exists after crawl
+P13	bảo hiểm y tế sinh viên 2026	K	llm-draft; verify a relevant post exists after crawl
+P14	thông báo đăng ký ký túc xá ĐHQG	K	llm-draft; verify a relevant post exists after crawl
+P15	điểm rèn luyện học kỳ 2 năm học 2025-2026	K	llm-draft; verify a relevant post exists after crawl
+P16	vay vốn tín dụng sinh viên	K	llm-draft; verify a relevant post exists after crawl
+P17	giấy xác nhận sinh viên	K	llm-draft; verify a relevant post exists after crawl
+P18	học bổng doanh nghiệp tài trợ	K	llm-draft; verify a relevant post exists after crawl
+P19	Sinh viên năm cuối có được xét học bổng khuyến khích học tập không?	Q	llm-draft; verify a relevant post exists after crawl
+P20	Điểm rèn luyện bao nhiêu thì được xét học bổng?	Q	llm-draft; verify a relevant post exists after crawl
+P21	Làm sao để xin giấy xác nhận sinh viên để làm thủ tục vay vốn?	Q	llm-draft; verify a relevant post exists after crawl
+P22	Em bị rớt một môn thì còn được nhận học bổng không?	Q	llm-draft; verify a relevant post exists after crawl
+P23	Hồ sơ miễn giảm học phí cho sinh viên dân tộc thiểu số gồm những gì?	Q	llm-draft; verify a relevant post exists after crawl
+P24	Không đóng bảo hiểm y tế đúng hạn thì xử lý thế nào?	Q	llm-draft; verify a relevant post exists after crawl
+P25	Hạn chót nộp đơn phúc khảo điểm rèn luyện là khi nào?	Q	llm-draft; verify a relevant post exists after crawl
+P26	Tham gia hoạt động xã hội thì được cộng bao nhiêu điểm rèn luyện?	Q	llm-draft; verify a relevant post exists after crawl
+P27	Bị mất thẻ sinh viên thì làm lại ở đâu?	Q	llm-draft; verify a relevant post exists after crawl
+P28	Em muốn ở ký túc xá thì đăng ký ra sao và khi nào?	Q	llm-draft; verify a relevant post exists after crawl
+P29	hb kkht hk2 co ds chua	N	llm-draft; verify a relevant post exists after crawl
+P30	mien giam hp ho can ngheo nop ho so gi	N	llm-draft; verify a relevant post exists after crawl
+P31	diem ren luyen sv nam 3 xem o dau	N	llm-draft; verify a relevant post exists after crawl
+P32	dk o ktx dhqg nam nay	N	llm-draft; verify a relevant post exists after crawl
+P33	gia han the bhyt sv	N	llm-draft; verify a relevant post exists after crawl
+P34	xin xac nhan sv de vay von	N	llm-draft; verify a relevant post exists after crawl
+P35	hoc bong tai tro cho sv kho khan	N	llm-draft; verify a relevant post exists after crawl
+P36	ctsv tb moi nhat ve hoc bong	N	llm-draft; verify a relevant post exists after crawl
+P37	kq xet ren luyen hk1 26-27	N	llm-draft; verify a relevant post exists after crawl
+P38	sv nam nhat dong bhyt bao nhieu	N	llm-draft; verify a relevant post exists after crawl
+P39	thông báo số 1 xét học bổng khuyến khích học tập học kỳ 1 năm học 2026-2027	T	llm-draft; verify a relevant post exists after crawl
+P40	danh sách sinh viên nhận học bổng học kỳ 2 năm học 2025-2026	T	llm-draft; verify a relevant post exists after crawl
+P41	thông báo mới nhất về bảo hiểm y tế	T	llm-draft; verify a relevant post exists after crawl
+P42	quyết định cấp học bổng đợt 2 năm 2026	T	llm-draft; verify a relevant post exists after crawl
+P43	thông báo số 3 đăng ký ký túc xá	T	llm-draft; verify a relevant post exists after crawl
+P44	lịch nộp hồ sơ miễn giảm học phí học kỳ 1 năm học 2026-2027	T	llm-draft; verify a relevant post exists after crawl
+P45	kết quả rèn luyện học kỳ 2 năm học 2024-2025	T	llm-draft; verify a relevant post exists after crawl
+P46	thông báo tháng 10 2026 về học bổng	T	llm-draft; verify a relevant post exists after crawl
+P47	danh sách sinh viên được khen thưởng học kỳ 1 năm học 2025-2026	A	llm-draft; answer likely only in attachment; verify
+P48	mức học bổng khuyến khích học tập theo loại giỏi xuất sắc	A	llm-draft; answer likely only in attachment; verify
+P49	danh sách sinh viên được miễn giảm học phí	A	llm-draft; answer likely only in attachment; verify
+P50	quyết định thành lập hội đồng xét học bổng	A	llm-draft; answer likely only in attachment; verify
+P51	mẫu đơn đề nghị miễn giảm học phí	A	llm-draft; answer likely only in attachment; verify
+P52	danh sách sinh viên bị cảnh cáo học vụ	A	llm-draft; answer likely only in attachment; verify
+P53	quyết định công nhận tốt nghiệp đợt tháng 9	A	llm-draft; answer likely only in attachment; verify
+P54	mức hỗ trợ chi phí học tập cho sinh viên dân tộc thiểu số	A	llm-draft; answer likely only in attachment; verify
+P55	học phí ngành Y khoa	X	llm-draft; expect nothing on ctsv; verify after crawl
+P56	hướng dẫn đăng ký học phần trên website đào tạo	X	llm-draft; expect nothing on ctsv; verify after crawl
+P57	điểm chuẩn tuyển sinh 2026 ngành khoa học máy tính	X	llm-draft; expect nothing on ctsv; verify after crawl
+P58	lịch thi cuối kỳ học kỳ 1 năm học 2026-2027	X	llm-draft; expect nothing on ctsv; verify after crawl
+P59	thủ tục nhập học thạc sĩ	X	llm-draft; expect nothing on ctsv; verify after crawl
+P60	học bổng chính phủ Hàn Quốc GKS	X	llm-draft; expect nothing on ctsv; verify after crawl
