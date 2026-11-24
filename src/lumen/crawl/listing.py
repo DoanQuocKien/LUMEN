@@ -191,6 +191,10 @@ def main(argv: list[str] | None = None) -> int:
     sections = args.sections or c["sections"]
     index = crawl_sections(fetcher, sections, out, args.max_pages, args.refresh,
                            c.get("post_path", POST_PATH), args.since or c.get("since"))
+    # Single pages that are posts themselves (static regulation/procedure pages): index directly.
+    for page in c.get("pages", []):
+        merge(index, [ListingItem(urljoin(c["base_url"], page.lstrip("/")), page.strip("/"), None)], "pages")
+    save_index(index, out)
     n_dated = sum(1 for it in index.values() if it.date)
     print(f"{len(index)} posts ({n_dated} with a listing date) -> {out}; "
           f"{fetcher.n_requests} requests to the site")
