@@ -16,6 +16,7 @@ STOPWORDS = frozenset("""
 là của và các những một này đó khi nào thế sao gì ai đâu bao nhiêu có không cần phải được bị
 để cho với từ trong ngoài về theo tại sau trước đã đang sẽ rồi chưa vẫn cũng còn nên nhưng
 hay hoặc nếu thì mà ra vào lên xuống em anh chị tôi mình ạ nhé ơi xin vui lòng
+hỏi e ac ak ạ okla k ko th đcko mk nhỉ vậy
 """.split())
 
 
