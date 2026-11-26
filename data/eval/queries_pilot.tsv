@@ -9,3 +9,83 @@ P07	hb kkht hk1 nam nay co danh sach chua	N	site search OK
 P08	thong bao cu sinh vien thi an toan thong tin	N	site search OK; answer is a scanned decision (QĐ 1487/2026)
 P09	dang ky bhyt sv nam 2	N	site search OK
 P10	thông báo số 2 về danh sách học bổng	T	site search: nothing; series query
+P11	xét học bổng khuyến khích học tập HK2 2025-2026	K	llm-draft; verify a relevant post exists after crawl
+P12	miễn giảm học phí sinh viên diện hộ nghèo	K	llm-draft; verify a relevant post exists after crawl
+P13	bảo hiểm y tế sinh viên 2026	K	llm-draft; verify a relevant post exists after crawl
+P14	thông báo đăng ký ký túc xá ĐHQG	K	llm-draft; verify a relevant post exists after crawl
+P15	điểm rèn luyện học kỳ 2 năm học 2025-2026	K	llm-draft; verify a relevant post exists after crawl
+P16	vay vốn tín dụng sinh viên	K	llm-draft; verify a relevant post exists after crawl
+P17	giấy xác nhận sinh viên	K	llm-draft; verify a relevant post exists after crawl
+P18	học bổng doanh nghiệp tài trợ	K	llm-draft; verify a relevant post exists after crawl
+P19	Sinh viên năm cuối có được xét học bổng khuyến khích học tập không?	Q	llm-draft; verify a relevant post exists after crawl
+P20	Điểm rèn luyện bao nhiêu thì được xét học bổng?	Q	llm-draft; verify a relevant post exists after crawl
+P21	Làm sao để xin giấy xác nhận sinh viên để làm thủ tục vay vốn?	Q	llm-draft; verify a relevant post exists after crawl
+P22	Em bị rớt một môn thì còn được nhận học bổng không?	Q	llm-draft; verify a relevant post exists after crawl
+P23	Hồ sơ miễn giảm học phí cho sinh viên dân tộc thiểu số gồm những gì?	Q	llm-draft; verify a relevant post exists after crawl
+P24	Không đóng bảo hiểm y tế đúng hạn thì xử lý thế nào?	Q	llm-draft; verify a relevant post exists after crawl
+P25	Hạn chót nộp đơn phúc khảo điểm rèn luyện là khi nào?	Q	llm-draft; verify a relevant post exists after crawl
+P26	Tham gia hoạt động xã hội thì được cộng bao nhiêu điểm rèn luyện?	Q	llm-draft; verify a relevant post exists after crawl
+P27	Bị mất thẻ sinh viên thì làm lại ở đâu?	Q	llm-draft; verify a relevant post exists after crawl
+P28	Em muốn ở ký túc xá thì đăng ký ra sao và khi nào?	Q	llm-draft; verify a relevant post exists after crawl
+P29	hb kkht hk2 co ds chua	N	llm-draft; verify a relevant post exists after crawl
+P30	mien giam hp ho can ngheo nop ho so gi	N	llm-draft; verify a relevant post exists after crawl
+P31	diem ren luyen sv nam 3 xem o dau	N	llm-draft; verify a relevant post exists after crawl
+P32	dk o ktx dhqg nam nay	N	llm-draft; verify a relevant post exists after crawl
+P33	gia han the bhyt sv	N	llm-draft; verify a relevant post exists after crawl
+P34	xin xac nhan sv de vay von	N	llm-draft; verify a relevant post exists after crawl
+P35	hoc bong tai tro cho sv kho khan	N	llm-draft; verify a relevant post exists after crawl
+P36	ctsv tb moi nhat ve hoc bong	N	llm-draft; verify a relevant post exists after crawl
+P37	kq xet ren luyen hk1 26-27	N	llm-draft; verify a relevant post exists after crawl
+P38	sv nam nhat dong bhyt bao nhieu	N	llm-draft; verify a relevant post exists after crawl
+P39	thông báo số 1 xét học bổng khuyến khích học tập học kỳ 1 năm học 2026-2027	T	llm-draft; verify a relevant post exists after crawl
+P40	danh sách sinh viên nhận học bổng học kỳ 2 năm học 2025-2026	T	llm-draft; verify a relevant post exists after crawl
+P41	thông báo mới nhất về bảo hiểm y tế	T	llm-draft; verify a relevant post exists after crawl
+P42	quyết định cấp học bổng đợt 2 năm 2026	T	llm-draft; verify a relevant post exists after crawl
+P43	thông báo số 3 đăng ký ký túc xá	T	llm-draft; verify a relevant post exists after crawl
+P44	lịch nộp hồ sơ miễn giảm học phí học kỳ 1 năm học 2026-2027	T	llm-draft; verify a relevant post exists after crawl
+P45	kết quả rèn luyện học kỳ 2 năm học 2024-2025	T	llm-draft; verify a relevant post exists after crawl
+P46	thông báo tháng 10 2026 về học bổng	T	llm-draft; verify a relevant post exists after crawl
+P47	danh sách sinh viên được khen thưởng học kỳ 1 năm học 2025-2026	A	llm-draft; answer likely only in attachment; verify
+P48	mức học bổng khuyến khích học tập theo loại giỏi xuất sắc	A	llm-draft; answer likely only in attachment; verify
+P49	danh sách sinh viên được miễn giảm học phí	A	llm-draft; answer likely only in attachment; verify
+P50	quyết định thành lập hội đồng xét học bổng	A	llm-draft; answer likely only in attachment; verify
+P51	mẫu đơn đề nghị miễn giảm học phí	A	llm-draft; answer likely only in attachment; verify
+P52	danh sách sinh viên bị cảnh cáo học vụ	A	llm-draft; answer likely only in attachment; verify
+P53	quyết định công nhận tốt nghiệp đợt tháng 9	A	llm-draft; answer likely only in attachment; verify
+P54	mức hỗ trợ chi phí học tập cho sinh viên dân tộc thiểu số	A	llm-draft; answer likely only in attachment; verify
+P55	học phí ngành Y khoa	X	llm-draft; expect nothing on ctsv; verify after crawl
+P56	hướng dẫn đăng ký học phần trên website đào tạo	X	llm-draft; expect nothing on ctsv; verify after crawl
+P57	điểm chuẩn tuyển sinh 2026 ngành khoa học máy tính	X	llm-draft; expect nothing on ctsv; verify after crawl
+P58	lịch thi cuối kỳ học kỳ 1 năm học 2026-2027	X	llm-draft; expect nothing on ctsv; verify after crawl
+P59	thủ tục nhập học thạc sĩ	X	llm-draft; expect nothing on ctsv; verify after crawl
+P60	học bổng chính phủ Hàn Quốc GKS	X	llm-draft; expect nothing on ctsv; verify after crawl
+P61	trường mình có dạy toeic hay ielts không ạ	Q	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P62	svn1 muốn học toeic 4kn gần ktx, ac rcm thầy cô dạy ngoài nào okla và giá cả hợp lý	N	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P63	kiểm tra quá trình môn lập trình có xin nghỉ hoặc ktra buổi khác được không ạ, tuần này em thi bằng lái nên không ktra được	Q	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P64	tiết 4 bắt đầu từ mấy giờ ạ	Q	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P65	học 24 tín một kì ở năm hai có nặng quá không ạ, muốn ra trường sớm ngành khoa học máy tính	Q	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P66	e đang là sv năm 2 nhưng vẫn chưa có nhóm để học tập và nghiên cứu chung thì có sao không, giờ e tìm nhóm ntn vậy ạ	N	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P67	chương trình đào tạo CNTT 2026 được học chính xác 6 tín chỉ môn tự do tự chọn th hay sao ạ? Là học 2 môn 4x2 tín đcko ạ	N	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P68	trường mở cửa cho vào mấy giờ k ạ, mai mk tính vào sớm 5h30 6h chụp hình	N	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P69	làm sao để biết mình thực tập ở đâu + thời gian, là trường sắp xếp rồi gửi mail hay mình tự tìm nơi tt	N	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P70	xem số tín của hk2 thì thấy ghi 19 và tổng số TC của các môn bắt buộc cũng là 19, vậy mình có được đăng kí nhiều hơn 19 tín ko ạ	N	real: UIT community post, name removed; mostly academic-affairs topics, probably style X, decide after pooling
+P71	xét hbkkht mà nếu ko đc nhận thì mình cũng ko đc nhận hbcp luôn ạ	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P72	cỡ bao lâu thì mình mới nhận đc hbcp v ạ	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P73	em sinh viên năm nhất trường khác, sau khi học xong năm 1 muốn chuyển qua uit thì có cần điều kiện gì không, có được quy đổi tín chỉ để học lên năm 2 hay phải học lại năm 1	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P74	để đc xếp loại xs đồng thời đc vinh danh trong 1 kì thì có yêu cầu nào về đrl k ạ	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P75	sv năm 2 ngành CS muốn chuyển sang IS, chuyên ngành httt y tế định hướng làm cái gì ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P76	sinh viên k26 ngành ktmt có đc nhận hb theo diện vi mạch 4tr2 ko, điều kiện là gì	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P77	trường mình 24/11 có được lễ nghỉ không ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P78	em đang học năm 1 khoa học máy tính ở trường khác, có thể xin chuyển vô KHMT UIT được ko, điểm năm nay cao hơn điểm chuẩn KHMT của UIT	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P79	khi nào thi cuối kỳ ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P80	năm 2 e chuyển ngành qua ktmt thì có đc xét hb theo vi mạch k ạ	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P81	tuần sau được nghỉ từ thứ mấy tới thứ mấy vậy ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P82	sinh viên năm 2 hỏi về các bài báo nckh đăng trên page trường, thường làm trong bao lâu, liên hệ giảng viên hướng dẫn thế nào và có liên quan đến điểm xét học bổng không	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P83	ngành KTMT vừa được duyệt vào nhóm chương trình đào tạo vi mạch bán dẫn nhưng trên portal chương trình đào tạo chỉ có 2 chuyên ngành là Robotics AI và IOT, sắp tới có được cập nhật lại không	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P84	trường mình có bán dây đeo thẻ hay gì liên quan tới trường mình k ạ, mua ở đâu nếu k phải sv trường	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P85	để lấy học bổng cần đạt những tiêu chí gì ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P86	nếu năm 2 em đậu vào ngành em muốn học thì trường có tạo điều kiện chuyển các môn đã học để giảm thời gian học không ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P87	đã có ai từng là sv năm 1 của trường khác và chuyển sang năm 2 trường mình chưa, em muốn biết cách làm đơn xin chuyển	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P88	năm sau em định vào trường mình, ngành vi mạch có được nhận học bổng chính phủ không ạ	Q	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P89	5đ ĐSTT giữa kì còn cứu đc k ạ	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
+P90	đki gửi xe trên web xong là chỉ cần quét thẻ sinh viên hả mọi người hay có cần thẻ gửi xe gì hong	N	real: UIT community post, lightly trimmed; style provisional, decide after pooling
