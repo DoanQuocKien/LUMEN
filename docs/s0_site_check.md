@@ -1,5 +1,7 @@
 # W1-C2: S0 vs the real site search (checked by hand, 2026-11-26)
 
+**Scope of this check:** it tests only whether S0 *imitates* the site's search (fidelity), so S0 can stand in for it as the baseline. It says nothing about whether the site's results are correct: the site search is poor (misses announcements, unusual matching, DAA search ignores posts). Site results must never be used as relevance judgments or as ground truth for qrels.
+
 Method: 20 pilot queries typed by hand into the search box of ctsv.uit.edu.vn and daa.uit.edu.vn (no scripted
 use of `/search/`, which robots.txt disallows). S0 = every word must match, diacritics ignored, over our crawled
 window (ctsv since 2024-11, daa since 2025). Counts differ when the site has older posts, so we compare
@@ -20,9 +22,9 @@ zero vs non-zero and the result sets.
 | P88 | 1 | 0 | site hit is a 2020 post |
 | P04, P71, P72, P89 | 0 | 0 | agree |
 | P61 | 0 | 0 | agree |
-| P77 | 1 (2023 BHYT post) | 3 (2025 posts) | **unexplained mismatch** |
+| P77 | 1 (2023 BHYT post) | 3 (2025 posts) | **unexplained difference** (S0 may be right and the site wrong; not investigated) |
 
-Result: 15 of 16 comparable queries agree (excluding the 4 explained by our window); P77 is the exception.
+Fidelity result: S0 reproduces the site's behaviour on 15 of 16 comparable queries (excluding the 4 explained by our window); P77 is the exception.
 A minimum word length of 3 (Drupal default) was tried and rejected: it made P77 return 60 and P04 return 3.
 
 ## Findings
