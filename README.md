@@ -58,4 +58,6 @@ and the report.
 
 | # | Member | Role |
 |---|--------|------|
-| 1 | [Doan Quoc Kien](https://github.com/DoanQuocKien) | Team leader |
+| 1 | [Doan Quoc Kien](https://github.com/DoanQuocKien) | Team leader, member C: retrieval |
+| 2 | [Nguyễn Huy Hoàng](https://github.com/PinKem253) | Member A: data and OCR |
+| 3 | [Bùi Diên Gia Bảo](https://github.com/bdgbao) | Member B: evaluation and classification |
