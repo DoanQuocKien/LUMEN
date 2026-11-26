@@ -1,20 +1,33 @@
-# W1-C2: S0 vs the real ctsv site search (check by hand)
+# W1-C2: S0 vs the real site search (checked by hand, 2026-11-26)
 
-Open https://ctsv.uit.edu.vn, type each query below **yourself** into the site's search box (robots.txt disallows /search/, so no scripts), and fill in the last two columns. Do not paste student names into this file.
+Method: 20 pilot queries typed by hand into the search box of ctsv.uit.edu.vn and daa.uit.edu.vn (no scripted
+use of `/search/`, which robots.txt disallows). S0 = every word must match, diacritics ignored, over our crawled
+window (ctsv since 2024-11, daa since 2025). Counts differ when the site has older posts, so we compare
+zero vs non-zero and the result sets.
 
-Our S0 = every word must match, diacritics ignored, newest first, over the ~795 posts we crawled (ctsv since 2024-11 and daa since 2025). The site covers all years, so **counts will differ**. Compare (a) zero vs non-zero results and (b) whether our newest 5 appear at the top of the site's list.
+## ctsv (site count / S0 count)
 
-Pass = (a) agrees and (b) mostly agrees. Plan target: 8 of 10 pass.
+| qid | site | S0 | note |
+|---|---|---|---|
+| P01 | 6 | 6 | same 6 titles |
+| P03, P08, P10, P13, P14, P81 | many | 2 to 56 | both non-zero |
+| P09 | many | 12 | both non-zero; query had no diacritics, so the site is diacritic-insensitive |
+| P07 | 9 | 7 | site extras are older than our window |
+| P05 | 7 | 1 | the S0 hit is on the site's list; rest are older |
+| P64 | 2 | 0 | site hits are 2012 and 2017 posts |
+| P79 | many | 0 | site hits are 2014-2024 posts |
+| P85 | 2 | 0 | site hits are from 2019 and 2024-08 |
+| P88 | 1 | 0 | site hit is a 2020 post |
+| P04, P71, P72, P89 | 0 | 0 | agree |
+| P61 | 0 | 0 | agree |
+| P77 | 1 (2023 BHYT post) | 3 (2025 posts) | **unexplained mismatch** |
 
-| # | qid | query | S0 hits | S0 newest 5 (date, title) | site has results? | newest-5 match? |
-|---|---|---|---|---|---|---|
-| 1 | P01 | học bổng khuyến khích học tập HK1 2026-2027 | 6 | 2026-11-19 Thông báo số 2 về danh sách đăng ký HB KKHT HK1 2026-2027<br>2026-11-03 Thông báo danh sách đăng ký Học bổng KKHT HK1 2026-2027 và H<br>2026-10-19 Thông báo đăng ký xét cấp các loại học bổng HK 1 – NH 2026-2<br>2026-07-08 Hướng dẫn về qui định Học bổng Khuyến khích học tập mới từ H<br>2026-07-08 Thông báo triển khai học bổng UIT Global từ học kỳ 1 năm học |  |  |
-| 2 | P03 | điểm rèn luyện học kỳ 1 | 58 | 2026-10-21 Wetalk số 07/2026 - "Thi cử, điểm số không còn là nỗi sợ"<br>2026-10-19 CƠ HỘI CHÁY HẾT MÌNH CÙNG ÂM NHẠC – BỨC PHÁ NĂNG LƯỢNG UIT<br>2026-10-19 Thông báo đăng ký xét cấp các loại học bổng HK 1 – NH 2026-2<br>2026-10-08 UPRACE × UIT 2026 / Sinh viên UIT chung tay lan tỏa tinh thầ<br>2026-09-15 WeTalk Số 06/2026 – “Xa nhà, mình ổn không?” |  |  |
-| 3 | P13 | bảo hiểm y tế sinh viên 2026 | 23 | 2026-10-19 Thông báo đăng ký xét cấp các loại học bổng HK 1 – NH 2026-2<br>2026-08-10 Hội thao Sinh viên ĐHQG-HCM năm 2026 / Mở đăng ký tham gia m<br>2026-07-08 Thông báo triển khai học bổng UIT Global từ học kỳ 1 năm học<br>2026-07-07 Thông báo cập nhật bảo hiểm y tế phục vụ công tác chấm điểm <br>2026-05-22 Hội thao Sinh viên ĐHQG-HCM năm 2026 / Mở đăng ký tham gia m |  |  |
-| 4 | P14 | thông báo đăng ký ký túc xá ĐHQG | 7 | 2026-07-27 Thông báo Xét khen thưởng Giấy khen Giám đốc ĐHQG-HCM năm họ<br>2026-04-28 Mở đăng ký tham dự lễ Khai mạc Hội thao sinh viên ĐHQG-HCM n<br>2026-04-15 Hội thao Sinh viên ĐHQG-HCM năm 2026 / Chính thức mở đăng ký<br>2026-01-07 Thông báo đăng ký ở lại Ký túc xá trong dịp tết Nguyên đán B<br>2025-07-22 Thông báo Xét khen thưởng Giấy khen Giám đốc ĐHQG-HCM năm họ |  |  |
-| 5 | P07 | hb kkht hk1 nam nay co danh sach chua | 7 | 2026-11-03 Thông báo danh sách đăng ký Học bổng KKHT HK1 2026-2027 và H<br>2026-10-19 Thông báo đăng ký xét cấp các loại học bổng HK 1 – NH 2026-2<br>2026-05-25 Danh sách dự kiến nhận các loại học bổng tại HK2 2025-2026<br>2026-04-23 Thông báo danh sách đăng ký Học bổng KKHT HK1 2025-2026 và H<br>2025-11-08 Danh sách dự kiến nhận các loại học bổng tại HK1 2025-2026 |  |  |
-| 6 | P08 | thong bao cu sinh vien thi an toan thong tin | 22 | 2026-10-21 Wetalk số 07/2026 - "Thi cử, điểm số không còn là nỗi sợ"<br>2026-08-13 [An ninh sinh viên] Bạo lực mạng & Quấy rối trên không gian <br>2026-05-25 Danh sách dự kiến nhận các loại học bổng tại HK2 2025-2026<br>2026-03-26 Kết quả gia hạn thêm thời gian nộp học phí học kỳ 2 năm học <br>2026-02-11 Tết an toàn – Xuân trọn vẹn / Bỏ túi bí kíp đón Tết văn minh |  |  |
-| 7 | P09 | dang ky bhyt sv nam 2 | 12 | 2026-07-08 Thông báo triển khai học bổng UIT Global từ học kỳ 1 năm học<br>2026-05-25 Danh sách dự kiến nhận các loại học bổng tại HK2 2025-2026<br>2026-01-26 Thông báo danh sách đóng tiền mua bảo hiểm y tế năm 2026 (Đợ<br>2025-12-22 Danh sách sinh viên nộp tiền mua BHYT 2026 và đăng ký bệnh v<br>2025-11-08 Danh sách dự kiến nhận các loại học bổng tại HK1 2025-2026 |  |  |
-| 8 | P10 | thông báo số 2 về danh sách học bổng | 24 | 2026-11-19 Thông báo số 2 về danh sách đăng ký HB KKHT HK1 2026-2027<br>2026-11-03 Thông báo danh sách đăng ký Học bổng KKHT HK1 2026-2027 và H<br>2026-10-19 Thông báo đăng ký xét cấp các loại học bổng HK 1 – NH 2026-2<br>2026-08-26 Thông báo danh sách dự kiến khen thưởng và trao học bổng khó<br>2026-05-25 Danh sách dự kiến nhận các loại học bổng tại HK2 2025-2026 |  |  |
-| 9 | P05 | Khi nào có kết quả xét học bổng học kỳ này? | 1 | 2026-10-19 Thông báo đăng ký xét cấp các loại học bổng HK 1 – NH 2026-2 |  |  |
-| 10 | P04 | Em cần nộp giấy tờ gì để xét miễn giảm học phí? | 0 | (none) |  |  |
+Result: 15 of 16 comparable queries agree (excluding the 4 explained by our window); P77 is the exception.
+A minimum word length of 3 (Drupal default) was tried and rejected: it made P77 return 60 and P04 return 3.
+
+## Findings
+
+- The site's order is **not newest first** (P01 mixes 2026-11, 2026-07, 2026-10, 2026-11, 2026-07, 2019). S0's date sort is our own choice; only result sets are comparable.
+- Matching is diacritic-insensitive and roughly AND over title and body.
+- **daa search** returns almost only static programme pages ("Cử nhân ngành ...", "Bảng tóm tắt môn học", "Một số quy trình dành cho sinh viên") and never announcements. Nothing to replicate; programme pages are not in our corpus (candidate for the W1-A2 scope).
+- DAA hits not in our corpus: P61 (1), P05 (1), P85 (1), P03/P08/P10/P14/P64/P79/P81/P88 (many), all programme pages.
