@@ -1,0 +1,21 @@
+qid	query	ctsv	daa	notes
+P01	học bổng khuyến khích học tập HK1 2026-2027	6	0	ctsv list order: 2026-11-03, 2026-07-08, 2026-10-19, 2026-11-19, 2026-07-08, 2019-03-20 (not date-sorted); S0 returns the same 6
+P03	điểm rèn luyện học kỳ 1	many	many	ctsv top: 2022-08 BHYT update, 2024-07, 2021-10, 2019-09, 2023-03; daa top: programme pages (Cử nhân ngành ...)
+P13	bảo hiểm y tế sinh viên 2026	many	0	ctsv top: BHYT 2026 notices (2026-01) mixed with a 2020 enrolment guide
+P14	thông báo đăng ký ký túc xá ĐHQG	many	many	daa top: programme pages
+P07	hb kkht hk1 nam nay co danh sach chua	9	0	no-diacritic query works on the site; S0 returns 7 (site extras are older)
+P08	thong bao cu sinh vien thi an toan thong tin	many	many	ctsv top: 2015 and 2014 posts first
+P09	dang ky bhyt sv nam 2	many	0	no-diacritic query works on the site
+P10	thông báo số 2 về danh sách học bổng	many	many
+P05	Khi nào có kết quả xét học bổng học kỳ này?	7	1	natural question still returns 7 on ctsv (GCC Coursera 2024, HK1 2026 scholarships notice, 2017-2021 posts); S0 returns 1 (in our window)
+P04	Em cần nộp giấy tờ gì để xét miễn giảm học phí?	0	0
+P61	trường có dạy toeic hay ielts không	0	1	daa hit is a programme page (Kỹ sư ngành Truyền thông và Mạng máy tính)
+P64	tiết 4 bắt đầu mấy giờ	2	many	ctsv hits are 2017 and 2012 posts
+P71	xét hbkkht ko đc nhận thì có đc nhận hbcp ko	0	0
+P72	bao lâu thì nhận đc hbcp	0	0
+P77	trường 24/11 có được lễ nghỉ không	1	0	site returns only one 2023-03 BHYT post; S0 returns three 2025 posts the site does not
+P79	khi nào thi cuối kỳ	many	many	ctsv hits are old and unrelated (JENESYS 2014, chickenpox 2019)
+P81	tuần sau được nghỉ từ thứ mấy tới thứ mấy	many	many
+P85	để lấy học bổng cần đạt những tiêu chí gì	2	1
+P88	ngành vi mạch có được nhận học bổng chính phủ không	1	many
+P89	5đ ĐSTT giữa kì còn cứu đc k	0	0
