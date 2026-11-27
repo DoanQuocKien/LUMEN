@@ -1,13 +1,37 @@
 crawl:
   base_url: https://ctsv.uit.edu.vn
-  listing_path: /thong-bao      # TODO(W1-A1): confirm the real listing URL and ?page= pattern
+  # Listing sections from the site menu (checked 22/11/2026). Posts in several
+  # sections are kept once; `sections` in posts_index.csv records all of them.
+  sections:
+    - /thong-bao                       # ~165 pages x 10 teasers, ISO dates
+    - /quyet-dinh                      # ~40 pages x 30 titles, no dates
+    - /quy-che-quy-dinh                # regulations, ~20 titles
+    - /van-ban/thong-bao               # ~29 pages x 15 titles
+    - /van-ban/ke-hoach
+    - /quy-trinh
+    - /bieu-mau
+    - /loai-bai-viet/so-tay-sinh-vien
+    - /loai-bai-viet/huong-dan
+    - /loai-bai-viet/suc-khoe
+    - /loai-bai-viet/tam-ly
+    - /loai-bai-viet/bao-hiem-y-te
+  select:                       # which listed posts to fetch (decision: narrow window first, 2026-11-25)
+    since: "2024-11-22"         # dated posts from the last 2 years
+    undated_title_regex: "202[56]"   # /quyet-dinh has no listing dates: keep titles with 2025 or 2026
+    reference_sections:         # regulations and guides stay valid for years: keep them all
+      - /quy-che-quy-dinh
+      - /quy-trinh
+      - /bieu-mau
+      - /loai-bai-viet/so-tay-sinh-vien
+      - /loai-bai-viet/huong-dan
   crawl_delay_s: 10             # from robots.txt; do not lower
   user_agent: "LUMEN-CS419-UIT student project (contact: <your-email>)"
   timeout_s: 30
   max_retries: 3
-  window_years: 2               # decision pending (plan §11.1)
+  window_years: 2               # decision pending (plan section 11.1)
 
 paths:
+  listing_index: data/raw/posts_index.csv
   raw_html: data/raw/html
   raw_attachments: data/raw/attachments
   ocr_cache: data/interim/ocr
