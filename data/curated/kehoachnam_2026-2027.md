@@ -3,7 +3,7 @@
 Nguồn: https://daa.uit.edu.vn/kehoachnam (ảnh pdtdh_bieu_do_ke_hoach_dao_tao_nam_hoc_2026-2027-ver-5.jpg).
 Trường Đại học Công nghệ Thông tin, ĐHQG-HCM. Biểu đồ ký ngày 17/3/2026 (KT. Hiệu trưởng).
 
-> Bản chép tay từ ảnh biểu đồ, phục vụ tìm kiếm. Lập bởi Claude (đọc ảnh theo từng ô, phóng to), **chưa được người kiểm tra**.
+> Bản chép tay từ ảnh biểu đồ, phục vụ tìm kiếm. Lập bởi Claude (đọc ảnh theo từng ô, phóng to); đã được Hoàng đối chiếu với ảnh (PR #5), các dòng sai lệch đã sửa theo đó. Đầu và cuối mũi tên đọc bằng mắt nên có thể lệch khoảng ±1 tuần.
 > Ngày ghi là ngày thứ Hai của tuần. "Khoảng" nghĩa là đầu mũi tên trên biểu đồ nằm lệch ô, cần đối chiếu lại với ảnh.
 > Ghi chú trên ảnh: kế hoạch hệ chính quy VB2 và Từ xa có thể thay đổi theo tình hình thực tế.
 
@@ -77,38 +77,38 @@ Trường Đại học Công nghệ Thông tin, ĐHQG-HCM. Biểu đồ ký ngà
 - Học kỳ 1 chạy từ tuần 3/8/2026. Dự trữ tuần 9/11/2026. Thi (T) tuần 16/11/2026.
 - Học kỳ 1 tiếp tục từ tuần 16/11/2026 đến tuần 25/1/2027 (học online tuần 25/1/2027).
 - Nghỉ Tết hai tuần 1/2 và 8/2/2027. Sau Tết: dự trữ tuần 15/2/2027, thi (T) tuần 22/2/2027.
-- Học kỳ 2 chạy từ tuần 22/2/2027 đến tuần 17/5/2027, thi (T) tuần 17/5/2027. Tiếp tục đến tuần 2/8/2027, thi (T) tuần 2/8/2027.
+- Học kỳ 2 chạy từ tuần 1/3/2027 đến tuần 17/5/2027, thi (T) tuần 17/5/2027. Tiếp tục đến tuần 2/8/2027, thi (T) tuần 2/8/2027.
 
 ## Đăng ký học phần
-- Học kỳ 1 (2026-2027): lập TKB khoảng tuần 10/8 đến 24/8/2026. Sinh viên đăng ký học phần khoảng từ tuần 24/8/2026 đến tuần 7/9/2026.
-- Học kỳ 2: lập TKB khoảng tuần 21/12/2026 đến 4/1/2027. Sinh viên đăng ký học phần khoảng từ tuần 4/1/2027 đến tuần 25/1/2027.
-- Học kỳ hè: khảo sát các môn sẽ mở tuần 10/5 đến 24/5/2027. Lập TKB khoảng tuần 31/5 đến 7/6/2027. Sinh viên đăng ký học phần khoảng từ tuần 14/6/2027 đến tuần 5/7/2027.
+- Học kỳ 1 (2026-2027): lập TKB khoảng tuần 3/8 đến 17/8/2026. Sinh viên đăng ký học phần khoảng từ tuần 24/8/2026 đến tuần 7/9/2026.
+- Học kỳ 2: lập TKB khoảng tuần 21/12/2026 đến 4/1/2027. Sinh viên đăng ký học phần khoảng từ tuần 11/1/2027 đến tuần 25/1/2027.
+- Học kỳ hè: khảo sát các môn sẽ mở tuần 10/5 đến 24/5/2027. Lập TKB khoảng tuần 31/5 đến 14/6/2027. Sinh viên đăng ký học phần khoảng từ tuần 21/6/2027 đến tuần 5/7/2027.
 
 ## Khóa luận tốt nghiệp
-- Đợt học kỳ 1: giao đề tài tuần 21/9/2026. Báo cáo tiến độ giữa kỳ (50%) tuần 23/11/2026. Phản biện (Pb) tuần 18/1/2027. Bảo vệ (Bv) tuần 25/1/2027.
-- Đợt học kỳ 2: giao đề tài tuần 15/2/2027. Báo cáo tiến độ giữa kỳ (50%) tuần 26/4/2027. Phản biện các tuần 14/6 và 21/6/2027. Bảo vệ các tuần 28/6 và 5/7/2027.
+- Đợt học kỳ 1: giao đề tài hai tuần 14/9 và 21/9/2026. Báo cáo tiến độ giữa kỳ (50%) tuần 23/11/2026. Phản biện (Pb) tuần 18/1/2027. Bảo vệ (Bv) tuần 25/1/2027.
+- Đợt học kỳ 2: giao đề tài hai tuần 15/2 và 22/2/2027. Báo cáo tiến độ giữa kỳ (50%) tuần 26/4/2027. Phản biện các tuần 14/6 và 21/6/2027. Bảo vệ các tuần 28/6 và 5/7/2027.
 
 ## Xét tốt nghiệp (chính quy)
 - Xét và ra quyết định (biểu đồ không ghi số đợt): khoảng tuần 17/8 đến 31/8/2026.
-- Đợt 4/2026: thu hồ sơ khoảng tuần 5/10 đến 12/10/2026. Xét và ra quyết định khoảng tuần 19/10 đến 9/11/2026. Lễ tốt nghiệp tuần 23/11/2026 (ngày 28/11/2026).
-- Đợt 1/2027: thu hồ sơ khoảng tuần 1/3 đến 8/3/2027. Xét và ra quyết định khoảng tuần 15/3 đến 22/3/2027.
-- Đợt 2/2027: thu hồ sơ khoảng tuần 19/4 đến 3/5/2027. Xét và ra quyết định khoảng tuần 10/5 đến 24/5/2027. Lễ tốt nghiệp tuần 7/6/2027 (ngày 8/6/2027).
-- Đợt 3/2027: thu hồ sơ khoảng tuần 2/8 đến 9/8/2027. Xét và ra quyết định khoảng tuần 16/8 đến 23/8/2027.
+- Đợt 4/2026: thu hồ sơ khoảng tuần 5/10 đến 19/10/2026. Xét và ra quyết định khoảng tuần 26/10 đến 2/11/2026. Lễ tốt nghiệp tuần 23/11/2026 (ngày 28/11/2026).
+- Đợt 1/2027: thu hồ sơ khoảng tuần 1/3 đến 15/3/2027. Xét và ra quyết định khoảng tuần 22/3 đến 29/3/2027.
+- Đợt 2/2027: thu hồ sơ khoảng tuần 19/4 đến 3/5/2027. Xét và ra quyết định khoảng tuần 10/5 đến 17/5/2027 (độ chắc chắn trung bình). Lễ tốt nghiệp tuần 7/6/2027 (ngày 8/6/2027).
+- Đợt 3/2027: thu hồ sơ khoảng tuần 26/7 đến 9/8/2027. Xét và ra quyết định khoảng tuần 16/8 đến 23/8/2027.
 
 ## Tuyển sinh
 - Dòng tuyển sinh văn bằng 1: nhập học và sinh hoạt công dân (N+S) tuần 7/9/2026.
 - Tuyển sinh văn bằng 2: nhập học (N) các tuần 17/8, 24/8 và 31/8/2026. Nhận hồ sơ năm 2027 từ tuần 3/5/2027 đến khoảng tuần 26/7/2027. Xét và ra quyết định tuần 2/8 và 9/8/2027. Nhập học (N) tuần 16/8, 23/8 và 30/8/2027.
-- Tuyển sinh liên thông: nhận hồ sơ năm 2027 từ tuần 3/5/2027 đến khoảng tuần 5/7/2027. Xét và ra quyết định tuần 12/7 đến 19/7/2027. Nhập học (N) tuần 19/7 và 26/7/2027.
+- Tuyển sinh liên thông: nhận hồ sơ năm 2027 từ tuần 3/5/2027 đến khoảng tuần 28/6/2027. Xét và ra quyết định tuần 5/7 đến 12/7/2027. Nhập học (N) tuần 19/7 và 26/7/2027.
 
 ## Xử lý học vụ (chính quy)
 - Đợt 1: lập danh sách khoảng tuần 7/9 đến 21/9/2026. Ra quyết định (QĐ) khoảng tuần 28/9 đến 12/10/2026.
-- Đợt 2: lập danh sách khoảng tuần 15/2 đến 8/3/2027. Ra quyết định khoảng tuần 8/3 đến 29/3/2027.
+- Đợt 2: lập danh sách khoảng tuần 22/2 đến 8/3/2027. Ra quyết định khoảng tuần 15/3 đến 29/3/2027.
 
 ## Đào tạo từ xa
-- Xét tốt nghiệp: đợt 2/2026 xét và ra quyết định khoảng tuần 3/8 đến 31/8/2026. Đợt 3/2026 thu hồ sơ khoảng tuần 28/9 đến 12/10/2026, xét và ra quyết định khoảng tuần 19/10 đến 9/11/2026. Lễ tốt nghiệp tuần 23/11/2026.
+- Xét tốt nghiệp: đợt 2/2026 xét và ra quyết định khoảng tuần 3/8 đến 31/8/2026. Đợt 3/2026 thu hồ sơ khoảng tuần 28/9 đến 12/10/2026, xét và ra quyết định khoảng tuần 19/10 đến 2/11/2026. Lễ tốt nghiệp tuần 23/11/2026.
 - Đợt 1/2027: thu hồ sơ khoảng tuần 1/3 đến 29/3/2027, xét và ra quyết định khoảng tuần 5/4 đến 26/4/2027. Lễ tốt nghiệp tuần 7/6/2027.
 - Đợt 2/2027: thu hồ sơ khoảng tuần 5/7 đến 26/7/2027, xét và ra quyết định khoảng tuần 2/8 đến 23/8/2027.
-- Tuyển sinh: đợt 3/2026 thu hồ sơ khoảng tuần 3/8 đến 31/8/2026, xét và ra quyết định khoảng tuần 7/9 đến 5/10/2026. Đợt 1/2027 thu hồ sơ khoảng tuần 7/12/2026 đến 25/1/2027, xét và ra quyết định khoảng tuần 15/2 đến 15/3/2027. Đợt 2/2027 thu hồ sơ khoảng tuần 15/3 đến 3/5/2027, xét và ra quyết định khoảng tuần 3/5 đến 7/6/2027.
+- Tuyển sinh: đợt 3/2026 thu hồ sơ khoảng tuần 3/8 đến 31/8/2026, xét và ra quyết định khoảng tuần 7/9 đến 28/9/2026. Đợt 1/2027 thu hồ sơ khoảng tuần 7/12/2026 đến 25/1/2027, xét và ra quyết định khoảng tuần 15/2 đến 8/3/2027. Đợt 2/2027 thu hồ sơ khoảng tuần 15/3 đến 26/4/2027, xét và ra quyết định khoảng tuần 3/5 đến 24/5/2027.
 - Xử lý học vụ từ xa: lập danh sách xử lý học vụ năm 2026 khoảng tuần 7/12 đến 28/12/2026. Ra quyết định xử lý học vụ tuần 4/1 và 11/1/2027.
 
 ## Bảng tuần học (tuần số, ngày thứ Hai)
