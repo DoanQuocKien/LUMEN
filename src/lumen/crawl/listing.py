@@ -47,10 +47,12 @@ class ListingItem:
     sections: set[str] = field(default_factory=set)
 
 
-def clean_url(href: str, page_url: str) -> str | None:
-    """Absolute post URL without query or fragment, or None if it isn't a post."""
+def clean_url(href: str, page_url: str, post_path: str = POST_PATH) -> str | None:
+    """Absolute post URL without query or fragment, or None if it isn't a post.
+
+    post_path "/" accepts any path (daa.uit.edu.vn posts are root-level slugs)."""
     parts = urlsplit(urljoin(page_url, href))
-    if not parts.path.startswith(POST_PATH) or parts.path.rstrip("/") == POST_PATH.rstrip("/"):
+    if not parts.path.startswith(post_path) or parts.path.rstrip("/") == post_path.rstrip("/"):
         return None
     if parts.netloc != urlsplit(page_url).netloc:
         return None
@@ -65,7 +67,8 @@ def _dmy_to_iso(text: str) -> str | None:
     return f"{y}-{int(mth):02d}-{int(d):02d}"
 
 
-def parse_listing(html: str, page_url: str) -> tuple[list[ListingItem], str | None]:
+def parse_listing(html: str, page_url: str,
+                  post_path: str = POST_PATH) -> tuple[list[ListingItem], str | None]:
     """Return the posts on one listing page and the absolute URL of the next page."""
     soup = BeautifulSoup(html, "lxml")
     main = soup.select_one("#block-system-main")
@@ -76,7 +79,7 @@ def parse_listing(html: str, page_url: str) -> tuple[list[ListingItem], str | No
     items: dict[str, ListingItem] = {}
 
     def add(a, date):
-        url = clean_url(a.get("href", ""), page_url)
+        url = clean_url(a.get("href", ""), page_url, post_path)
         title = a.get_text(" ", strip=True)
         if url and title and url not in items:
             items[url] = ListingItem(url, title, date)
@@ -88,7 +91,7 @@ def parse_listing(html: str, page_url: str) -> tuple[list[ListingItem], str | No
             add(a, stamp.get("content") if stamp else None)
 
     for row in main.select(".views-row"):
-        a = row.select_one(f'a[href*="{POST_PATH}"]')
+        a = row.select_one(f'a[href*="{post_path}"]')
         date_el = row.select_one(".date")
         if a is not None:
             add(a, _dmy_to_iso(date_el.get_text()) if date_el else None)
@@ -135,7 +138,9 @@ def merge(index: dict[str, ListingItem], items: list[ListingItem], section: str)
 
 
 def crawl_sections(fetcher: PoliteFetcher, sections: list[str], out_csv: Path,
-                   max_pages: int | None = None, refresh: bool = False) -> dict[str, ListingItem]:
+                   max_pages: int | None = None, refresh: bool = False,
+                   post_path: str = POST_PATH, since: str | None = None) -> dict[str, ListingItem]:
+    """since: ISO date; a section stops at the first page whose dated posts are all older."""
     index = load_index(out_csv)
     for section in sections:
         url: str | None = urljoin(fetcher.base_url, section.lstrip("/"))
@@ -145,12 +150,16 @@ def crawl_sections(fetcher: PoliteFetcher, sections: list[str], out_csv: Path,
             if res.status != 200:
                 log.warning("%s -> HTTP %d, stopping section %s", url, res.status, section)
                 break
-            items, url_next = parse_listing(res.text, url)
+            items, url_next = parse_listing(res.text, url, post_path)
+            dated = [it.date[:10] for it in items if it.date]
+            too_old = bool(since) and bool(dated) and all(d < since for d in dated)
+            if since:
+                items = [it for it in items if not it.date or it.date[:10] >= since]
             new = merge(index, items, section)
             save_index(index, out_csv)
             log.info("%-32s page %3d: %2d posts (%2d new)%s  total %d", section, page,
                      len(items), new, " [cache]" if res.from_cache else "", len(index))
-            if not items:
+            if not items or too_old:
                 break
             url, page = url_next, page + 1
     return index
@@ -163,6 +172,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--max-pages", type=int, help="pages per section (for testing)")
     ap.add_argument("--refresh", action="store_true", help="ignore cached listing pages")
     ap.add_argument("--out", help="output CSV (default: paths.listing_index)")
+    ap.add_argument("--since", help="YYYY-MM-DD: stop each section once posts are older (default: crawl.since)")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
 
@@ -179,7 +189,12 @@ def main(argv: list[str] | None = None) -> int:
                             max_retries=c["max_retries"])
     out = Path(args.out or paths["listing_index"])
     sections = args.sections or c["sections"]
-    index = crawl_sections(fetcher, sections, out, args.max_pages, args.refresh)
+    index = crawl_sections(fetcher, sections, out, args.max_pages, args.refresh,
+                           c.get("post_path", POST_PATH), args.since or c.get("since"))
+    # Single pages that are posts themselves (static regulation/procedure pages): index directly.
+    for page in c.get("pages", []):
+        merge(index, [ListingItem(urljoin(c["base_url"], page.lstrip("/")), page.strip("/"), None)], "pages")
+    save_index(index, out)
     n_dated = sum(1 for it in index.values() if it.date)
     print(f"{len(index)} posts ({n_dated} with a listing date) -> {out}; "
           f"{fetcher.n_requests} requests to the site")
