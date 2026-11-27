@@ -111,7 +111,7 @@ class PoliteFetcher:
             remaining = self.delay_s - (self._clock() - self._last_request)
             if remaining > 0:
                 self._sleep(remaining)
-        self._last_request = self._clock()
+        self._last_request = self._clock()  # also stamped after each response, see _request
 
     def _request(self, url: str):
         last_exc: Exception | None = None
@@ -120,6 +120,7 @@ class PoliteFetcher:
             self.n_requests += 1
             try:
                 resp = self.session.get(url, timeout=self.timeout_s)
+                self._last_request = self._clock()  # the delay counts from the end of the response
             except requests.RequestException as exc:
                 last_exc = exc
                 log.warning("GET %s failed (%s), attempt %d", url, exc, attempt + 1)

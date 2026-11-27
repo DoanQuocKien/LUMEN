@@ -144,3 +144,18 @@ def test_root_level_posts_and_since_cutoff(tmp_path):
     index = crawl_sections(f, ["/thongbaochinhquy"], tmp_path / "i.csv", post_path="/", since="2025-01-01")
     assert set(index) == {f"{BASE}/thong-bao-nghi-le-2-9"}   # old posts dropped, stopped at page 1
     assert f"{BASE}/thongbaochinhquy?page=2" not in f.session.calls
+
+
+def test_delay_counts_from_end_of_response(tmp_path):
+    f, clock = make_fetcher(tmp_path, {f"{BASE}/a": "A", f"{BASE}/b": "B"})
+    real_get = f.session.get
+
+    def slow_get(url, timeout=None):
+        clock.t += 4.0                              # the server takes 4 s to answer
+        return real_get(url, timeout=timeout)
+
+    f.session.get = slow_get
+    f.get(f"{BASE}/a")
+    clock.slept.clear()
+    f.get(f"{BASE}/b")
+    assert clock.slept == [10.0]                    # a full 10 s after the previous response (the old code waited 6 s)
