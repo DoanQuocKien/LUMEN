@@ -1,0 +1,34 @@
+# Second source: Office of Undergraduate Studies (daa.uit.edu.vn). Same Drupal 7 setup and
+# the same `Crawl-delay: 10` as ctsv. Run: python scripts/01_crawl_listing.py --config configs/daa.yaml
+# Posts are root-level slugs (/thong-bao-...), not /bai-viet/. ~2200 pages in /thongbaochinhquy
+# (class-level notices included), so `since` cuts each section off by date.
+crawl:
+  base_url: https://daa.uit.edu.vn
+  post_path: /
+  since: "2025-01-01"           # decision pending (plan section 11.1)
+  sections:
+    - /thongbaochinhquy          # notices for regular undergraduate programmes
+    - /thong-bao-chung           # general notices
+    - /thong-bao-vb2             # second-degree (văn bằng 2) notices
+    - /qui-che-qui-dinh-qui-trinh   # UIT regulations
+  # Single pages (not listings): the post itself, usually with PDF attachments
+  pages:
+    - /quy-che-quy-dinh-dao-tao-dai-hoc-cua-dhqg-hcm
+    - /quy-che-quy-dinh-dao-tao-dai-hoc-cua-bo-gddt
+    - /mot-so-quy-trinh-danh-cho-sinh-vien   # chuyển ngành, chuyển trường, ĐKHP procedures
+    - /kehoachnam                            # training calendar (image only)
+  select:
+    since: "2025-01-01"
+    # about 85% of /thongbaochinhquy is per-class notices (make-up classes, room changes): skip them
+    exclude_title_regex: "nghỉ lớp|học bù|phòng học|đổi phòng|thay đổi phòng|chuyển phòng|thay đổi lịch|lịch học|lịch thi thực hành"
+    reference_sections:
+      - /qui-che-qui-dinh-qui-trinh
+      - pages
+  crawl_delay_s: 10              # from robots.txt; do not lower
+  user_agent: "LUMEN-CS419-UIT student project (contact: <your-email>)"
+  timeout_s: 30
+  max_retries: 3
+
+paths:
+  listing_index: data/raw/daa/posts_index.csv
+  raw_html: data/raw/daa/html
