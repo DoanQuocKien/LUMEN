@@ -65,3 +65,9 @@ eval:
   cutoffs: [5, 10, 100]
   primary: ndcg@10
   bootstrap_samples: 10000
+
+boost:                          # W3-A1 metadata boost; tune on dev only
+  w_recency: 0.10
+  w_seq: 0.30
+  w_year: 0.30
+  half_life_days: 365
