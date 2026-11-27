@@ -123,3 +123,24 @@ def test_crawl_sections_paginates_and_dedupes(tmp_path):
     assert set(reloaded) == set(index)
     first_row = out.read_text(encoding="utf-8").splitlines()[1]
     assert "2026-11-19" in first_row               # newest dated post first
+
+
+DAA_PAGE = """<html><body><div id="block-system-main">
+<article class="node node-teaser"><h2><a href="/thong-bao-nghi-le-2-9">Thông báo nghỉ lễ 2/9</a></h2>
+ <div class="submitted"><span content="2026-08-20T09:00:00+07:00">x</span></div></article>
+<article class="node node-teaser"><h2><a href="/thong-bao-cu">Thông báo cũ</a></h2>
+ <div class="submitted"><span content="2024-03-01T09:00:00+07:00">x</span></div></article>
+<ul class="pager"><li class="pager-next"><a href="/thongbaochinhquy?page=1">next</a></li></ul>
+</div><a href="/sidebar">sidebar</a></body></html>"""
+
+
+def test_root_level_posts_and_since_cutoff(tmp_path):
+    items, _ = parse_listing(DAA_PAGE, f"{BASE}/thongbaochinhquy", post_path="/")
+    assert [i.url for i in items] == [f"{BASE}/thong-bao-nghi-le-2-9", f"{BASE}/thong-bao-cu"]
+    old_only = DAA_PAGE.replace("2026-08-20", "2023-01-01")
+    pages = {f"{BASE}/thongbaochinhquy": DAA_PAGE, f"{BASE}/thongbaochinhquy?page=1": old_only,
+             f"{BASE}/thongbaochinhquy?page=2": DAA_PAGE}
+    f, _ = make_fetcher(tmp_path, pages)
+    index = crawl_sections(f, ["/thongbaochinhquy"], tmp_path / "i.csv", post_path="/", since="2025-01-01")
+    assert set(index) == {f"{BASE}/thong-bao-nghi-le-2-9"}   # old posts dropped, stopped at page 1
+    assert f"{BASE}/thongbaochinhquy?page=2" not in f.session.calls
