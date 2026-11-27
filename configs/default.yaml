@@ -20,6 +20,8 @@ ocr:
   lang: vie
   dpi: 300
   min_chars_per_page: 50        # fewer than this → treat page as scanned
+  low_conf: 60                  # Tesseract page confidence below this → retry after deskew
+  bakeoff_dir: data/interim/bakeoff
 
 passages:
   size_syllables: 200
