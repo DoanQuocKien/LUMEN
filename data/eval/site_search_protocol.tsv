@@ -1,0 +1,31 @@
+qid	query	tests	if_d7_core	s0_ctsv	d7_ctsv	d7k_ctsv	att_ctsv	s0_daa	d7_daa	ctsv	ctsv_top	daa	daa_top	notes
+X01	24/11	numbers: digits joined across "/" (P77)	only posts with "24/11" not followed by a year; far fewer than S0	23	0	0	33	5	0					
+X02	24/11/2025	numbers: full date is one token	posts containing exactly 24/11/2025 (or 24-11-2025); not a superset of X01	21	0	0	25	4	0					
+X03	1005/2024	numbers: decision number in a title	the post "Quyết định số 1005/2024 ..." is found	3	1	1	3	0	0					
+X04	1005	numbers: part of a joined number	0 from the 1005/2024 title (joined to 10052024); S0 finds it	4	3	3	4	0	0					
+X05	2026-2027	numbers: school year with dash	one token 20262027; similar to S0 count only if every post writes it without spaces	10	9	9	10	2	2					
+X06	ĐHQG-HCM	dash inside a word	one token đhqghcm; many results	94	93	93	100	7	6					
+X07	đhqghcm	dash removed at index time (đ kept, so no đ/d question)	same count as X06; S0 gives 0	0	93	93	0	0	6					
+X08	diem ren luyen	đ vs d (no marks at all)	if đ=d in the collation: same as X10; if not: near 0	83	83	0	87	3	3					
+X09	điem ren luyen	đ kept, other marks dropped	same as X10 under any accent-insensitive collation	83	83	83	87	3	3					
+X10	điểm rèn luyện	control with full diacritics	many	83	83	83	87	3	3					
+X11	hóc bông	wrong diacritics	collation ignores marks entirely: same as "học bổng"; strict: 0	167	167	167	173	6	6					
+X12	BẢO HIỂM Y TẾ	uppercase; record top 10 order	same count and order as X13	55	54	54	62	0	0					
+X13	bảo hiểm y tế	lowercase; ranking probe (top 10 dates)	D7 relevance: titles with all words first, not newest first	55	54	54	62	0	0					
+X14	lễ	short word only (< 3 letters)	error "at least one positive keyword with 3 characters or more", 0 results	99	err	err	108	28	err					
+X15	của các và	stopwords only	AND over all three (và checked by LIKE): many; S0s gives 0	197	197	197	204	46	46					
+X16	toeic OR ielts	uppercase OR operator	union of toeic and ielts	0	3	3	0	0	0					
+X17	toeic or ielts	lowercase or is a plain word	AND with the word "or": about 0	0	0	0	0	0	0					
+X18	học bổng -khuyến	minus excludes a word	học bổng posts without khuyến; S0 instead requires khuyến	44	123	123	49	1	5					
+X19	"học bổng khuyến khích"	quoted phrase	consecutive words only	39	29	29	44	1	0					
+X20	"khuyến khích học bổng"	quoted phrase, reversed order	about 0 (phrase does not occur in that order)	39	0	0	44	1	0					
+X21	học bổng and khuyến khích	lowercase and is ignored	same as "học bổng khuyến khích" without quotes; S0 requires "and"	0	39	39	2	1	1					
+X22	sinh viê	truncated word (prefix match?)	0 (whole words only)	1	1	1	2	1	0					
+X23	học-bổng	hyphen inside the query	one token họcbổng: about 0; S0 splits it: many	167	1	1	173	6	0					
+X24	rubella sởi	word found only in a PDF attachment (post "Bệnh Sởi", 2025-03-19)	attachments not indexed: that post is absent	0	0	0	1	0	0					
+X25	turing nvidia	word found only in a PDF attachment (NVIDIA scholarship post, 2026-02-04)	attachments not indexed: that post is absent	0	0	0	1	0	0					
+X26	Thông báo Về việc tham dự lễ tốt nghiệp đợt 2 Năm 2026 và Danh sách xếp chỗ	very long query = exact title of a 2026-11-19 post	the post is found (index is fresh); AND over 17 words	2	2	2	4	0	0					
+X27	sinh viên	very common words: index size	count = number of indexed posts that say sinh viên; compare with listing size	509	509	509	510	121	121					
+X28	thu học phí học kỳ hè	daa: title words of a 2026-07-21 announcement	stale daa index: absent on daa	44	44	44	55	6	6					
+X29	Một số quy trình dành cho sinh viên	daa: title of a 2014 static page the daa search already returns	control: found on daa	29	29	25	37	11	1					
+X30	nghiện	single rare word (body text only)	whole-word match; any post using it	29	29	29	35	3	3					
