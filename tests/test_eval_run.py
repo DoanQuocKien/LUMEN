@@ -27,3 +27,21 @@ def test_significance():
     assert paired_randomization(a, a, n=2000) == pytest.approx(1.0, abs=0.01)
     lo, hi = bootstrap_ci([0.2, 0.4, 0.6, 0.8] * 10, n=1000)
     assert lo < 0.5 < hi
+
+
+def test_read_run_rejects_duplicate_document(tmp_path):
+    f = tmp_path / "r.trec"
+    f.write_text("q1 Q0 d 1 9 x\nq1 Q0 d 2 8 x\n")
+    with pytest.raises(ValueError, match="duplicate document 'd' for query 'q1'"):
+        read_run(f)
+    f.write_text("q1 Q0 d 1 9 x\nq2 Q0 d 1 8 x\n")      # same document under different queries is fine
+    assert read_run(f) == {"q1": ["d"], "q2": ["d"]}
+
+
+def test_significance_validates_samples():
+    with pytest.raises(ValueError):
+        paired_randomization([], [])
+    with pytest.raises(ValueError):
+        paired_randomization([0.1, 0.2], [0.1])
+    with pytest.raises(ValueError):
+        bootstrap_ci([])
