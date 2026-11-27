@@ -13,6 +13,7 @@ import re
 import sys
 import unicodedata
 from collections import Counter
+from pathlib import Path
 
 from lumen.retrieve.systems import load_docs
 from lumen.text.normalize import STOPWORDS, normalize_numbers
@@ -133,6 +134,15 @@ def check(n: int, cell: str) -> str:
     return "ok" if n <= hi else "over"
 
 
+def assess(rows, counts: dict[str, int]) -> dict[str, list[str]]:
+    """Split rows by check(): 'ok' and 'over' are the assessable rows (numeric site count); 'na' ('many' or
+    empty cell) cannot be checked. ok + over + na always equals len(rows)."""
+    out = {"ok": [], "over": [], "na": []}
+    for r in rows:
+        out[{"ok": "ok", "over": "over", "n/a": "na"}[check(counts[r["qid"]], r["ctsv"])]].append(r["qid"])
+    return out
+
+
 # In-window docs the site is known to return (from the observation notes; ctsv). 14 doc-query pairs.
 _B = "bai-viet/"
 _HK1 = _B + "thong-bao-dang-ky-xet-cap-cac-loai-hoc-bong-hk-1-nh-2026-2027"
@@ -203,7 +213,7 @@ def p01_order(ctsv, docs_by_id):
     rankers["BM25 title+body"] = dict(BM25F(ctsv).search(q, k=len(ctsv)))
     rows = []
     for name, sc in rankers.items():
-        dates = [docs_by_id[i]["date"][:10] for i in sorted(KNOWN["P01"], key=lambda i: -_num(sc.get(i, 0)))]
+        dates = [docs_by_id[i]["date"][:10] for i in sorted(KNOWN["P01"], key=lambda i: (-_num(sc.get(i, 0)), i))]
         rows.append((name, dates, _tau_dates(dates, P01_SITE_DATES)))
     return rows
 
@@ -225,6 +235,8 @@ def main(argv=None) -> None:
     ap.add_argument("--predict", help="TSV with qid and query columns: print S0 and D7-model counts per site")
     a = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
+    if not Path(a.docs).exists():
+        sys.exit(f"{a.docs} not found; build it with scripts/03_quick_corpus.py")
     docs = load_docs({"paths": {"docs": a.docs}})
     for d in docs:
         d["attachment"] = d.get("attachment") or ""
@@ -238,18 +250,24 @@ def main(argv=None) -> None:
     zeros = [r["qid"] for r in rows if r["ctsv"] == "0"]
     n_known = sum(len(ids) for q, ids in KNOWN.items() if any(r["qid"] == q for r in rows))
     print(f"ctsv docs: {len(ctsv)}; observations: {len(rows)}\n")
-    print(f"| variant | consistent (of {len(rows)}) | over-matches | excess docs | zeros kept (of {len(zeros)}) "
-          f"| known site hits found (of {n_known}) |\n|---|---|---|---|---|---|")
+    print("Upper-bound check only: a variant that always returns zero would pass every assessable row, so read "
+          "'zeros kept' and 'known pairs found' next to it."+"\n")
+    print(f"| variant | ok (assessable) | over | n/a ('many') | excess docs | zeros kept (of {len(zeros)}) "
+          f"| known site hits found (of {n_known}) |"+"\n"+"|---|---|---|---|---|---|---|")
     detail = {}
     for name, spec in VARIANTS.items():
         m = Matcher(ctsv, *spec)
         res = {r["qid"]: m.hits(r["query"]) for r in rows}
-        over = [r["qid"] for r in rows if check(len(res[r["qid"]]), r["ctsv"]) == "over"]
-        excess = sum(len(res[r["qid"]]) - parse_count(r["ctsv"])[1] for r in rows if r["qid"] in over)
+        a = assess(rows, {q: len(v) for q, v in res.items()})
+        n_assess = len(a["ok"]) + len(a["over"])
+        excess = sum(len(res[r["qid"]]) - parse_count(r["ctsv"])[1] for r in rows if r["qid"] in a["over"])
         kept = sum(not res[q] for q in zeros)
         known = sum(len(ids & set(res.get(q, []))) for q, ids in KNOWN.items())
-        print(f"| {name} | {len(rows) - len(over)} | {', '.join(over) or '-'} | {excess} | {kept} | {known} |")
+        print(f"| {name} | {len(a['ok'])} of {n_assess} | {', '.join(a['over']) or '-'} | {len(a['na'])} "
+              f"| {excess} | {kept} | {known} |")
         detail[name] = {q: len(v) for q, v in res.items()}
+    print("\nUnassessable rows (site shows 'many'): "
+          + ", ".join(r["qid"] for r in rows if parse_count(r["ctsv"])[1] is None))
     print("\nPer-query counts (ctsv, in-window corpus):\n")
     names = list(VARIANTS)
     print("| qid | site | " + " | ".join(f"v{i}" for i in range(len(names))) + " |")

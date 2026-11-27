@@ -90,7 +90,7 @@ The only fully recorded order is P01 (6 results, site: 2026-11-03, 2026-07-08, 2
 | ranking of the same 6 docs | order (dates) | Kendall tau vs site |
 |---|---|---|
 | date, newest first (current S0) | 2026-11-19, 2026-11-03, 2026-10-19, 2026-07-08, 2026-07-08, 2019-03-20 | +0.47 |
-| **D7 relevance** (title x26, idf, focus decay) | 2026-11-03, 2026-07-08, 2026-10-19, 2026-11-19, 2026-07-08, 2019-03-20 | **+1.00** |
+| **D7 relevance** (title x26, idf, focus decay) | 2026-11-03, 2026-07-08, 2026-10-19, 2026-11-19, 2026-07-08, 2019-03-20 | +1.00 (one query) |
 | tf-idf over body | 2026-10-19, 2026-07-08, 2026-11-03, 2026-11-19, 2026-07-08, 2019-03-20 | +0.60 |
 | tf-idf over title | 2026-07-08, 2026-11-03, 2026-11-19, 2026-07-08, 2026-10-19, 2019-03-20 | +0.60 |
 | BM25 title+body | 2026-07-08, 2026-10-19, 2026-11-03, 2019-03-20, 2026-11-19, 2026-07-08 | +0.47 |
@@ -118,8 +118,7 @@ BHYT - Chấm điểm rèn luyện" posts high, and the site's top hit is a 2022
 ## 6. Conclusions
 
 1. The site search behaves like stock Drupal 7 core search: AND over title+body, accent-insensitive, no attachment
-   text, digit groups and dashed words joined into single tokens, relevance order. The D7 model fits all 20
-   observations, keeps the 14 known hits and fixes P77. S0 fits 19.
+   text, digit groups and dashed words joined into single tokens, relevance order. The D7 model is consistent with all 12 assessable observations (the 8 'many' rows cannot be checked), keeps the 14 known hits and fixes P77. S0 is consistent with 11 of 12. The check is a one-sided upper bound, so this is a lead, not proof.
 2. Rejected: OR / min-should-match, title-only, phrase matching, exact diacritics, dropping stopwords, dropping short
    words, indexing attachment text. Date sort (current S0) does not reproduce the site order; D7 relevance does on P01.
 3. Proposed S0 change (separate PR after the hand test, since `retrieve/systems.py` is outside this task): tokenise
