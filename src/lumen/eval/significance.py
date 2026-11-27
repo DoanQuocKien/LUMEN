@@ -6,6 +6,8 @@ import random
 
 def paired_randomization(a, b, n=10000, seed=0) -> float:
     """Two-sided p-value: randomly swap each query's pair and count mean differences as large as observed."""
+    if not a or len(a) != len(b):
+        raise ValueError(f"paired samples must be nonempty and of equal length (got {len(a)} and {len(b)})")
     d = [x - y for x, y in zip(a, b)]
     obs = abs(sum(d))
     rng = random.Random(seed)
@@ -15,6 +17,8 @@ def paired_randomization(a, b, n=10000, seed=0) -> float:
 
 def bootstrap_ci(values, n=10000, alpha=0.05, seed=0) -> tuple[float, float]:
     """Percentile bootstrap CI of the mean over queries."""
+    if not values:
+        raise ValueError("bootstrap_ci needs at least one value")
     rng = random.Random(seed)
     m = len(values)
     means = sorted(sum(rng.choices(values, k=m)) / m for _ in range(n))

@@ -23,10 +23,14 @@ METRICS = {
 def read_run(path) -> dict[str, list[str]]:
     """TREC run -> {qid: doc_ids by rank}. Ordered by the rank column, not by file order."""
     rows = defaultdict(list)
+    seen = set()
     with open(path, encoding="utf-8") as f:
-        for line in f:
+        for n, line in enumerate(f, 1):
             p = line.split()
             if len(p) >= 6:
+                if (p[0], p[2]) in seen:   # a repeated document would count twice in Recall/AP
+                    raise ValueError(f"{path}:{n}: duplicate document {p[2]!r} for query {p[0]!r}")
+                seen.add((p[0], p[2]))
                 rows[p[0]].append((int(p[3]), p[2]))
     return {q: [d for _, d in sorted(v)] for q, v in rows.items()}
 
