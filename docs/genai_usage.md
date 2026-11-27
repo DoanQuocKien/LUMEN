@@ -6,3 +6,4 @@ The course allows GenAI but forbids copying its output verbatim. Record every su
 |---|---|---|---|---|
 | 2026-11-22 | Kiên | Claude | Feasibility review, implementation plan draft, repo skeleton | Plan reviewed and edited by the team |
 | 2026-11-27 | Huy (A) | Claude | W1-A5 text-layer detector (PyMuPDF) + offline tests | Reviewed and run locally; thresholds to be checked on real PDFs |
+| 2026-11-27 | Huy (A) | Claude | W1-A4 OCR engines wrapper, per-page cache, CER/WER bake-off script | Tesseract path tested offline; PaddleOCR/VietOCR code untested until installed |
